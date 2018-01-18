@@ -1,17 +1,18 @@
 package com.spring.myfirst;
 
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
 import com.hello2.Application;
 public class appMain {
 	public static void main(String []args){
-		ApplicationContext context = new FileSystemXmlApplicationContext("E:/Project/Java/springFrameworkStudy/src/main/resources/saybeans.xml");
-		sayHello printer1= (sayHello) context.getBean("sayhello");
-		printer1.getsay();
-		sayHello printer2= (sayHello) context.getBean("sayhello");
-		printer2.setname("onlyhun");
-		printer2.getsay();
-		printer1.getsay();
+//		AbstractApplicationContext  context1 = new ClassPathXmlApplicationContext("saybeans.xml");
+       ApplicationContext context1 = new FileSystemXmlApplicationContext("E:/Project/Java/springFrameworkStudy/src/main/resources/saybeans.xml");
+		System.out.println("create context1");
+		sayHello printer1= (sayHello) context1.getBean("sayhello");
+		printer1.tosay();
+
+//		context1.registerShutdownHook(); //用来在非web应用中关闭IoC容器的...
 	}
 }

@@ -3,10 +3,16 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.springframework.org/schema/beans
     http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
-   <bean id="sayhello"  class="com.spring.myfirst.sayHello" scope="prototype"> <!-- singleton\ -->
+    <bean id="world"  class="com.spring.myfirst.World"> </bean>
+    <bean id="sayhello"  class="com.spring.myfirst.sayHello"   parent="fatherinterface" init-method="initForSay"  destroy-method="destroyForSay"  scope="singleton"> <!-- singleton\prototype -->
         <constructor-arg   name ="sayworld" ref="world"> </constructor-arg>
-        <property name="name" value="hunterleee"></property>
+        <!-- <property name="name" value="hunterleee"></property>  注释掉后读取父级的name的value=fathercc--> 
    </bean>
-    <bean id="world"  class="com.spring.myfirst.World">
-   </bean>
+	<bean id="fatherc"  class="com.spring.myfirst.fatherC"  abstract="false">
+		<property name="name" value="fathercc"></property>
+	</bean>
+    <bean id="fatherinterface"  class="com.spring.myfirst.fatherInter" abstract="true"> 
+    <property name="name" value="fatherinterface"></property>
+     </bean>
+    
 </beans>
