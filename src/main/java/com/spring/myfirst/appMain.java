@@ -8,10 +8,10 @@ import com.hello2.Application;
 public class appMain {
 	public static void main(String []args){
 //		AbstractApplicationContext  context1 = new ClassPathXmlApplicationContext("saybeans.xml");
-       ApplicationContext context1 = new FileSystemXmlApplicationContext("E:/Project/Java/springFrameworkStudy/src/main/resources/saybeans.xml");
+       ApplicationContext context1 = new FileSystemXmlApplicationContext("E:\\Project\\Java\\springFrameworkStudy\\WebContent\\WEB-INF\\classes\\saybeans.xml");
 		System.out.println("create context1");
 		sayHello printer1= (sayHello) context1.getBean("sayhello");
-		printer1.tosay();
+		printer1.getInnername();
 
 //		context1.registerShutdownHook(); //用来在非web应用中关闭IoC容器的...
 	}

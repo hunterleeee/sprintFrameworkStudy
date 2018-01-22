@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+    <bean id="listbeantest"  class="com.spring.myfirst.listBeanTest">
+     <property name="list" >
+     	<list>
+     		<value>aa</value>
+     		<value>bb</value>
+     	</list>
+     </property> 		
+     <property name="hashset" >
+     	<set>
+     		<value>aa</value>
+     		<value>bb</value>
+     		<value>bb</value>
+     	</set>
+     </property> 		
+     <property name="hashmap" >
+     	<map>
+     		<entry key="1" value="aaa"></entry>
+     		<entry key="2" value="bbb"></entry>
+     		<entry key="3" value="aaa"></entry>
+     	</map>
+     </property> 	
+
+    
+     </bean>
+</beans>

@@ -25,6 +25,14 @@ interface fatherInter{
 public class sayHello  {
 	final private World sayworld;
 	private String name;
+	public innerC getInnername() {
+		this.innername.print();
+		return null;
+	}
+	public void setInnername(innerC innername) {
+		this.innername = innername;
+	}
+	private innerC innername;
 	public sayHello(World sayworld){
 		System.out.println("in constructor...");
 		this.sayworld=sayworld;
@@ -44,5 +52,11 @@ public class sayHello  {
 	}
 	public void tosay(){
 		System.out.println("sayHello Class : "+name);
+	}
+}
+
+class innerC{
+	void print(){
+		System.out.println("i am innerC.print()");
 	}
 }
