@@ -11,12 +11,23 @@
         <bean id="helloWorldImpl1" class="AOP.test.HelloWorldImpl1" />
         <bean id="helloWorldImpl2" class="AOP.test.HelloWorldImpl2" />
         <bean id="timeHandler" class="AOP.test.TimeHandler" />
+        <bean id="logHandler" class="AOP.test.LogHandler" />
         
         <aop:config>
-            <aop:aspect id="time" ref="timeHandler">  <!-- 添加切面-->
-                <aop:pointcut id="addAllMethod" expression="execution(* AOP.test.HelloWorld.*(..))" />   <!-- 切入点-->
-                <aop:before method="printTime" pointcut-ref="addAllMethod" />
-                <aop:after method="printTime" pointcut-ref="addAllMethod" />
+
+            <aop:aspect id="time" ref="timeHandler"  order="1">  <!--声明切面 引用 id 是timeHandler的类-->
+                <aop:pointcut id="printTime" expression="execution(* AOP.test.HelloWorld*.doPrint(..))" />   
+                <!-- 声明一个切入点addAllMethod，注意  expression="execution(* AOP.test.HelloWorld.*(..))"  ;expression="execution(* AOP.test.HelloWorldImpl1.*(..))"  expression="execution(* AOP.test.HelloWorld.doPrint(..))"  -->
+                
+                <aop:before method="printTime" pointcut-ref="printTime" />
+                <aop:after method="printTime" pointcut-ref="printTime" />
             </aop:aspect>
+
+            <aop:aspect id="log" ref="logHandler"  order="2">
+            	<aop:pointcut id="printLog" expression="execution(* AOP.test.HelloWorld*.doPrint(..))" />
+            	<aop:before method="logBefore"  pointcut-ref="printLog"/>
+            	<aop:after method="logAfter"  pointcut-ref="printLog"/>
+            </aop:aspect>
+ <!--  -->
         </aop:config>
 </beans>

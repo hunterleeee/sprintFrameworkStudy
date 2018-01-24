@@ -9,5 +9,4 @@ public class HelloWorldImpl2 implements HelloWorld {
 	public void doPrint() {
 		System.out.println("Enter HelloWorldImpl2.doPrint()");
 	}
-
 }
