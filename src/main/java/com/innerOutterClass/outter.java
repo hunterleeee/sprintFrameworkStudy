@@ -1,10 +1,7 @@
 package com.innerOutterClass;
-
-import org.junit.Test;
-
 public class outter {
 	private String name="hunterleee";
-	@Test
+
 	public String getName() {
 		System.out.println(name);
 		return name;
@@ -18,7 +15,7 @@ public class outter {
 	
 
 	class inner{
-		@Test
+
 		public void getname(){
 			System.out.println(name);
 		}

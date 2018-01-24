@@ -8,6 +8,9 @@ import java.util.Set;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.support.FileSystemXmlApplicationContext;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.Resource;
 
 public class listBeanTest {
 	public ArrayList<String> getList() {
@@ -18,19 +21,19 @@ public class listBeanTest {
 		this.list = list;
 	}
 
-	public Set getHashset() {
+	public Set gethashset() {
 		return hashset;
 	}
 
-	public void setHashset(HashSet<String> hashset) {
+	public void sethashset(HashSet<String> hashset) {
 		this.hashset = hashset;
 	}
 
-	public Map getHashMap() {
+	public Map gethashmap() {
 		return hashmap;
 	}
 
-	public void setHashMap(HashMap<String, String> hashmap) {
+	public void sethashmap(HashMap<String, String> hashmap) {
 		this.hashmap = hashmap;
 	}
 
@@ -39,9 +42,13 @@ public class listBeanTest {
 	Map hashmap;
 
 	public static void main(String[] args) {
-		ApplicationContext context =new ClassPathXmlApplicationContext("/springFrameworkStudy/WebContent/WEB-INF/classes/listbeanConfig.xml");
+//		ApplicationContext context =new ClassPathXmlApplicationContext("springFrameworkStudy/WebContent/WEB-INF/classes/listbeanConfig.xml");  //classpath resource找不到
+	    ApplicationContext context = new FileSystemXmlApplicationContext("E:\\Project\\Java\\springFrameworkStudy\\WebContent\\WEB-INF\\classes\\listbeanConfig.xml");
+
 		listBeanTest ll = (listBeanTest)context.getBean("listbeantest");
-		System.out.println(ll.getHashMap());
+		System.out.println(ll.getList());
+		System.out.println(ll.gethashset());
+		System.out.println(ll.gethashmap());
 	}
 
 }
