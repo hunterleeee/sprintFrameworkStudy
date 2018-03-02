@@ -21,6 +21,7 @@
                 
                 <aop:before method="printTime" pointcut-ref="printTime" />
                 <aop:after method="printTime" pointcut-ref="printTime" />
+                
             </aop:aspect>
 
             <aop:aspect id="log" ref="logHandler"  order="2">
